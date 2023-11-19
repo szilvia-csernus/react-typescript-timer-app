@@ -1,4 +1,4 @@
-import { ReactNode, createContext } from "react";
+import { ReactNode, createContext, useContext } from "react";
 
 type Timer = {
     name: string;
@@ -17,6 +17,19 @@ type TimersContextValue = TimersState & {
 }
 
 const TimersContext = createContext<TimersContextValue | null>(null);
+
+// We create this custom hook to access TimersContext in a type-safe way!
+// This way we can tell Typescript that our variable should not be null at the
+// point it's getting used.
+export function useTimersContext() {
+    const timersCtx = useContext(TimersContext)
+
+    if (timersCtx === null) {
+        throw new Error('TemerContext is null - that should not happen!!')
+    }
+
+    return timersCtx
+}
 
 type TimersContextProviderProps = {
     children: ReactNode
