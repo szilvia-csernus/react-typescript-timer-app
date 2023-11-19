@@ -10,6 +10,11 @@ type TimersState = {
     timers: Timer[];
 }
 
+const initialState: TimersState = {
+    isRunning: true,
+    timers: []
+}
+
 type TimersContextValue = TimersState & {
     addTimer: (timerData: Timer) => void,
     startTimers: () => void,
@@ -36,6 +41,8 @@ type TimersContextProviderProps = {
 }
 
 export function TimersContextProvider({children}: TimersContextProviderProps ) {
+
+    useReducer(reducer, initialState)
 
     const ctx: TimersContextValue = {
         timers: [],
