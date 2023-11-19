@@ -89,10 +89,10 @@ export function TimersContextProvider({children}: TimersContextProviderProps ) {
     const [timersState, dispatch] = useReducer(timersReducer, initialState)
 
     const ctx: TimersContextValue = {
-        timers: [],
-        isRunning: false,
+        timers: timersState.timers,
+        isRunning: timersState.isRunning,
         addTimer(timerData) {
-            dispatch({ type: 'ADD_TIMER' });
+            dispatch({ type: 'ADD_TIMER', payload: timerData });
         },
         startTimers() {
             dispatch({ type: 'START_TIMERS' });
