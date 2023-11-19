@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Handjet:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -51,7 +51,7 @@ ul li {
 }
 
 ul h2 {
-  font-size: 2rem;
+  font-size: 1.7rem;
   text-align: center;
   margin: 0;
 }

@@ -16,7 +16,7 @@ export default function Timer({name, duration }: TimerProps) {
     if (isRunning) {
       timer = setInterval(function() {
         setRemainingTime((prevTime) => {
-            if (prevTime <= 50) {
+            if (prevTime <= 0) {
               return prevTime;
             }
             return prevTime - 50;
